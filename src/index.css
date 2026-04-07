@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+/* * {
+    margin: 0;
+    padding: 0;
+  } */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Satoshi", sans-serif;
+}
+
+.input {
+  @apply border border-gray-200 rounded-lg px-4 py-2 outline-none 
+  focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition;
+}
