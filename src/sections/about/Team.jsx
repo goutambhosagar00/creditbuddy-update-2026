@@ -24,10 +24,10 @@ const team = [
     linkedin: "#",
   },
   {
-    name: "Ayush Nanda",
-    role: "Growth & Operations Lead",
-    desc: "Drives growth through data, strategy, and strong campus connections.",
-    image: "/team/ayush.jpeg",
+    name: "Atul Meher",
+    role: "BRAND & MARKETING LEAD",
+    desc: "Builds CreditBuddy’s voice across campaigns and social media while driving awareness and engagement among students. Blends creativity with data to craft high-impact content, optimize performance, and turn attention into meaningful user action.",
+    image: "/team/atul.jpeg",
     linkedin: "#",
   },
 ];
