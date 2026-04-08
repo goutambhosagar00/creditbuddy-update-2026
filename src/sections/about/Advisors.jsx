@@ -5,27 +5,27 @@ const advisors = [
   {
     name: "CS Saurav Pradhan",
     role: "Legal Advisor",
-    desc: "RBI frameworks and governance — keeps us regulation-right.",
+    desc: "RBI frameworks and governance — ensuring full regulatory compliance.",
   },
   {
     name: "CMA Vishal Pathak",
     role: "Finance & Audit",
-    desc: "Unit economics, financial models, and audit processes.",
+    desc: "Leads unit economics, financial modeling, and audit systems.",
   },
   {
     name: "Karan Agrawal",
     role: "Business Strategy",
-    desc: "NBFC partnerships, lending structure, capital management.",
+    desc: "Drives NBFC partnerships, lending structure, and capital strategy.",
   },
   {
     name: "Shashank Kumar Purohit",
     role: "Growth",
-    desc: "Go-to-market strategy and revenue scaling.",
+    desc: "Leads go-to-market strategy and revenue scaling.",
   },
   {
     name: "Ish Kumar Thakar",
     role: "Tech Advisor",
-    desc: "Fullstack + Mobile architecture. Scaled with 1L+ students.",
+    desc: "Fullstack + mobile architecture. Previously scaled a student platform to 1L+ users.",
   },
 ];
 
@@ -67,14 +67,18 @@ export default function Advisors() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.15 + i * 0.07 }}
-                className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 border-b border-white/10 pb-4 last:border-none"
+                className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-white/10 pb-4 last:border-none hover:opacity-90 transition"
               >
                 <div>
-                  <p className="font-medium">{item.name}</p>
-                  <p className="text-xs text-blue-400 uppercase">{item.role}</p>
+                  <p className="font-medium text-white">{item.name}</p>
+                  <p className="text-xs text-blue-400 uppercase tracking-wide">
+                    {item.role}
+                  </p>
                 </div>
 
-                <p className="text-sm text-gray-300 max-w-md">{item.desc}</p>
+                <p className="text-sm text-gray-400 max-w-md leading-relaxed">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>

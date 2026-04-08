@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 
 export default function EligibilityFAQ() {
   return (
-    <section className="bg-gray-50 py-24">
+    <section className="bg-gray-50 py-20 md:py-24">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-10">
         {/* LEFT */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
@@ -20,7 +20,6 @@ export default function EligibilityFAQ() {
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ delay: 0.15 }}
             className="bg-green-50 border border-green-100 rounded-2xl p-6 mb-6"
           >
@@ -39,7 +38,6 @@ export default function EligibilityFAQ() {
                   key={i}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
                   transition={{ delay: 0.2 + i * 0.05 }}
                 >
                   ✔ {item}
@@ -52,7 +50,6 @@ export default function EligibilityFAQ() {
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ delay: 0.3 }}
             className="bg-white border border-gray-200 rounded-2xl p-6"
           >
@@ -70,7 +67,6 @@ export default function EligibilityFAQ() {
                   key={i}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
                   transition={{ delay: 0.35 + i * 0.05 }}
                 >
                   ❌ {item}
@@ -84,7 +80,6 @@ export default function EligibilityFAQ() {
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.7 }}
         >
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
@@ -95,7 +90,7 @@ export default function EligibilityFAQ() {
             {[
               {
                 q: "Do I get paid?",
-                a: "Top ambassadors earn Buddy Coins, perks, and recommendations.",
+                a: "Top ambassadors earn Buddy Coins (redeemable for cash credits in-app), exclusive brand perks, and a founder-signed LinkedIn recommendation. High-performers get early access to paid gigs on the platform.",
               },
               {
                 q: "How much time?",
@@ -114,7 +109,6 @@ export default function EligibilityFAQ() {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.08 }}
                 className="bg-white border border-gray-200 rounded-xl p-4 
                 hover:shadow-sm hover:-translate-y-[2px] transition-all duration-300"
@@ -124,6 +118,22 @@ export default function EligibilityFAQ() {
               </motion.div>
             ))}
           </div>
+
+          {/* ✅ EXTRA CTA (conversion boost) */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-6 text-center"
+          >
+            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium shadow hover:scale-[1.03] transition">
+              Apply Now →
+            </button>
+
+            <p className="text-xs text-gray-400 mt-2">
+              Takes 5 minutes. No long essays.
+            </p>
+          </motion.div>
         </motion.div>
       </div>
     </section>

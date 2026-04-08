@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 
 export default function RoleBenefits() {
   return (
-    <section className="bg-gray-50 py-24">
+    <section className="bg-gray-50 py-20 md:py-24">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-start">
         {/* LEFT - ROLE */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
           <h2 className="text-2xl md:text-4xl font-bold mb-4">
@@ -35,19 +35,18 @@ export default function RoleBenefits() {
                 desc: "A peer community where students talk money without shame",
               },
               {
-                title: "Feed back",
+                title: "Feedback", // 🔧 fixed wording
                 desc: "Share real student insights with the CreditBuddy team",
               },
               {
                 title: "Time",
-                desc: "4–6 hours/month minimum. Studies always come first.",
+                desc: "4–6 hours/month. Flexible. Studies always come first.",
               },
             ].map((item, i) => (
               <motion.li
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{ delay: 0.1 + i * 0.07 }}
               >
                 <p className="font-medium text-black">{item.title}</p>
@@ -61,7 +60,6 @@ export default function RoleBenefits() {
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.7 }}
           className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
         >
@@ -73,7 +71,7 @@ export default function RoleBenefits() {
             {[
               {
                 title: "Career capital",
-                desc: "Leadership certificate, LinkedIn endorsement, founder recommendation",
+                desc: "Leadership certificate, LinkedIn endorsement, and a founder-signed recommendation",
               },
               {
                 title: "Recognition",
@@ -81,14 +79,13 @@ export default function RoleBenefits() {
               },
               {
                 title: "Perks",
-                desc: "Early access, beta features, Buddy Coins, exclusive goodies",
+                desc: "Early access, beta features, Buddy Coins (redeemable), exclusive goodies",
               },
             ].map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.08 }}
               >
                 <p className="font-medium text-black">✔ {item.title}</p>
@@ -101,13 +98,27 @@ export default function RoleBenefits() {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
             transition={{ delay: 0.5 }}
             className="mt-6 text-xs text-gray-500 italic border-t pt-4"
           >
-            “And the part that doesn’t fit a bullet: helping a fellow student
-            access fair credit when they’re stuck is a genuinely good thing to
-            do.”
+            “Helping a fellow student access fair credit when they’re stuck
+            isn’t just useful — it actually matters.”
+          </motion.div>
+
+          {/* ✅ CTA ADDED (VERY IMPORTANT) */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-6 text-center"
+          >
+            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium shadow hover:scale-[1.03] transition">
+              Apply Now →
+            </button>
+
+            <p className="text-xs text-gray-400 mt-2">
+              Takes 5 minutes. No prior experience needed.
+            </p>
           </motion.div>
         </motion.div>
       </div>

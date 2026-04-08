@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 
 export default function Learn() {
   return (
-    <section className="bg-gray-50 py-20">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="bg-gray-50 py-16 sm:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
-          className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200"
+          className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200"
         >
           {/* HEADER */}
           <motion.div
@@ -18,12 +18,14 @@ export default function Learn() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center gap-3 mb-5"
           >
             <div className="w-10 h-10 bg-yellow-500 text-white flex items-center justify-center rounded-lg">
               📘
             </div>
-            <h2 className="text-xl md:text-2xl font-semibold">Learn</h2>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold">
+              Learn
+            </h2>
           </motion.div>
 
           {/* DESCRIPTION */}
@@ -32,10 +34,10 @@ export default function Learn() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-gray-600 mb-8 text-sm md:text-base"
+            className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed"
           >
-            5 minutes a day. Life-changing. Learn how money actually works —
-            credit scores, budgeting, and smart decisions.
+            5 minutes a day. Life-changing. Learn how money actually works — not
+            theory, but real-life decisions that impact your future.
           </motion.p>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -45,8 +47,8 @@ export default function Learn() {
               <ul className="space-y-3 text-sm text-gray-600">
                 {[
                   "5-minute modules — fits between classes",
-                  "Earn coins & unlock perks",
-                  "Anonymous peer forum — ask anything",
+                  "Earn coins & unlock real rewards",
+                  "Anonymous peer forum — ask anything without fear",
                 ].map((item, i) => (
                   <motion.li
                     key={i}
@@ -54,8 +56,10 @@ export default function Learn() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 + i * 0.06 }}
+                    className="flex gap-2"
                   >
-                    ✔ {item}
+                    <span className="text-green-500">✔</span>
+                    <span>{item}</span>
                   </motion.li>
                 ))}
               </ul>
@@ -70,24 +74,24 @@ export default function Learn() {
               >
                 <h3 className="font-semibold mb-2">🪙 Buddy Coins</h3>
                 <p className="text-sm text-gray-600">
-                  Earn coins for completing modules. Redeem for perks and
-                  benefits in the app.
+                  Complete modules, earn coins, and redeem them for real perks
+                  inside the app.
                 </p>
               </motion.div>
             </div>
 
             {/* RIGHT CURRICULUM */}
-            <div className="space-y-3 text-sm text-gray-600">
-              <h3 className="font-semibold mb-2">Module Curriculum</h3>
+            <div className="space-y-3 text-sm text-gray-700">
+              <h3 className="font-semibold mb-2">What you'll actually learn</h3>
 
               {[
-                "What is a credit score & why it matters",
-                "How to budget like a student",
-                "Loans vs credit cards — what to use",
-                "APR, interest, and hidden fees explained",
-                "Building an emergency fund",
-                "Investing basics — SIP, mutual funds",
-                "What happens if you default",
+                "Why your credit score decides your financial life",
+                "How to budget as a student (and actually stick to it)",
+                "APR explained: why loans cost more than you think",
+                "Smart savings: build an emergency fund step-by-step",
+                "Loans vs credit cards: what to use and when",
+                "Investing basics: SIPs & mutual funds made simple",
+                "What actually happens if you miss a payment",
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -95,9 +99,7 @@ export default function Learn() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.25 + i * 0.05 }}
-                  className={`bg-gray-50 px-4 py-2 rounded-lg ${
-                    i === 4 ? "border border-yellow-300" : ""
-                  }`}
+                  className="bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition"
                 >
                   {item}
                 </motion.div>

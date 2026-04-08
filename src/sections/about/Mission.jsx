@@ -19,26 +19,29 @@ export default function Mission() {
           transition={{ duration: 0.7 }}
           className="text-3xl md:text-5xl font-bold mb-12"
         >
-          What we’re building.
+          Built for students. Backed by purpose.
         </motion.h2>
 
         {/* CARDS */}
         <div className="grid md:grid-cols-3 gap-6 text-left">
           {[
             {
-              title: "Our Mission",
+              label: "Mission",
+              title: "What we do",
               color: "text-blue-400",
               desc: "Build India’s most trusted student financial ecosystem — fair credit, real earnings, and practical financial education.",
             },
             {
-              title: "Our Vision",
+              label: "Vision",
+              title: "Where we're going",
               color: "text-green-400",
               desc: "Every Indian student has access to financial tools and knowledge to build their future — without debt traps.",
             },
             {
-              title: "Our Promise",
+              label: "Promise",
+              title: "What we stand for",
               color: "text-yellow-400",
-              desc: "Radical transparency. Zero harassment. Every decision made in the student’s interest. Always.",
+              desc: "Radical transparency. Zero harassment. Every decision made in the student’s interest — always.",
             },
           ].map((item, i) => (
             <motion.div
@@ -48,12 +51,24 @@ export default function Mission() {
               viewport={{ once: true }}
               transition={{ delay: 0.15 + i * 0.1 }}
               className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 
-              hover:-translate-y-[3px] hover:border-white/20 transition-all duration-300"
+              hover:-translate-y-[4px] hover:border-white/20 transition-all duration-300"
             >
-              <p className={`${item.color} text-xs mb-2 uppercase`}>
-                {item.title}
+              {/* LABEL */}
+              <p
+                className={`${item.color} text-xs uppercase tracking-wide mb-2`}
+              >
+                {item.label}
               </p>
-              <p className="text-sm text-gray-300">{item.desc}</p>
+
+              {/* TITLE */}
+              <h3 className="text-lg font-semibold mb-2 text-white">
+                {item.title}
+              </h3>
+
+              {/* DESC */}
+              <p className="text-sm text-gray-300 leading-relaxed">
+                {item.desc}
+              </p>
             </motion.div>
           ))}
         </div>

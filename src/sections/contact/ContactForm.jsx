@@ -1,12 +1,17 @@
 import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 
 export default function ContactForm() {
   const formRef = useRef();
-  const [loading, setLoading] = useState(false);
+  const investorRef = useRef();
 
+  const [loading, setLoading] = useState(false);
+  const [investorLoading, setInvestorLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  // ================= NORMAL CONTACT =================
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -18,31 +23,50 @@ export default function ContactForm() {
         formRef.current,
         "K1pRcwo5jf5qnjgYN",
       )
-      .then(
-        () => {
-          toast.success("Message sent successfully 🚀");
-          formRef.current.reset();
-          setLoading(false);
-        },
-        (error) => {
-          console.log(error);
-          toast.error("Failed to send message ❌");
-          setLoading(false);
-        },
-      );
+      .then(() => {
+        toast.success("Message sent successfully 🚀");
+        formRef.current.reset();
+        setLoading(false);
+      })
+      .catch(() => {
+        toast.error("Failed to send message ❌");
+        setLoading(false);
+      });
+  };
+
+  // ================= INVESTOR FORM =================
+  const sendInvestor = (e) => {
+    e.preventDefault();
+    setInvestorLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_ddx4hml",
+        "template_investor", // 👉 create new template
+        investorRef.current,
+        "K1pRcwo5jf5qnjgYN",
+      )
+      .then(() => {
+        toast.success("Deck sent to your email 📩");
+        investorRef.current.reset();
+        setInvestorLoading(false);
+        setOpen(false);
+      })
+      .catch(() => {
+        toast.error("Failed to send ❌");
+        setInvestorLoading(false);
+      });
   };
 
   return (
     <section className="bg-gray-50 pb-24">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-8">
-        {/* LEFT - FORM */}
+        {/* ================= LEFT FORM ================= */}
         <motion.form
           ref={formRef}
           onSubmit={sendEmail}
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
           className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
         >
           <h2 className="text-lg font-semibold mb-6">Send us a message.</h2>
@@ -84,47 +108,26 @@ export default function ContactForm() {
             className="input mt-4 w-full"
           />
 
-          <motion.button
+          <button
             type="submit"
             disabled={loading}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 px-6 py-2 bg-purple-600 text-white rounded-lg text-sm hover:opacity-90 transition"
+            className="mt-6 px-6 py-2 bg-purple-600 text-white rounded-lg"
           >
             {loading ? "Sending..." : "Send Message →"}
-          </motion.button>
+          </button>
         </motion.form>
 
-        {/* RIGHT - INFO */}
+        {/* ================= RIGHT SIDE ================= */}
         <div className="space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
-          >
+          {/* CONTACT INFO */}
+          <div className="bg-white border border-gray-200 rounded-2xl p-6">
             <h3 className="font-semibold mb-4">Find us directly.</h3>
+            <p className="text-sm text-gray-600">📧 hello@creditbuddy.in</p>
+            <p className="text-sm text-gray-600">📍 Sambalpur, Odisha, India</p>
+          </div>
 
-            <div className="space-y-3 text-sm text-gray-600">
-              <p>📧 hello@creditbuddy.in</p>
-              <p>📍 Sambalpur, Odisha, India</p>
-
-              <div className="flex gap-3 text-gray-400 text-sm">
-                <span>🌐</span>
-                <span>🔗</span>
-                <span>📷</span>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="bg-black text-white rounded-2xl p-6"
-          >
+          {/* INVESTOR BOX */}
+          <div className="bg-black text-white rounded-2xl p-6">
             <h3 className="text-green-400 font-semibold mb-3">
               For investors — the 60-sec version.
             </h3>
@@ -137,19 +140,79 @@ export default function ContactForm() {
             <ul className="text-xs text-gray-400 space-y-1 mb-4">
               <li>Market: $20B+</li>
               <li>Model: Earn + Borrow</li>
-              <li>Stage: Early</li>
+              <li>Stage: Pre-seed</li>
+              <li>Raising: ₹X Cr</li>
+              <li>Traction: X waitlist users</li>
             </ul>
 
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full py-2 bg-white text-black rounded-lg text-sm"
+            <button
+              onClick={() => setOpen(true)}
+              className="w-full py-2 bg-white text-black rounded-lg"
             >
               Request Deck →
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* ================= MODAL ================= */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.form
+              ref={investorRef}
+              onSubmit={sendInvestor}
+              className="bg-white p-6 rounded-2xl w-full max-w-md"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+            >
+              <h3 className="text-lg font-semibold mb-4">
+                Request Investor Deck
+              </h3>
+
+              <input
+                name="name"
+                placeholder="Your Name"
+                required
+                className="input mb-3"
+              />
+              <input
+                name="email"
+                placeholder="Email"
+                required
+                className="input mb-3"
+              />
+              <input
+                name="fund"
+                placeholder="Fund / Company"
+                required
+                className="input mb-4"
+              />
+
+              <button
+                type="submit"
+                disabled={investorLoading}
+                className="w-full py-2 bg-black text-white rounded-lg"
+              >
+                {investorLoading ? "Sending..." : "Send Deck →"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="text-xs mt-3 text-gray-500"
+              >
+                Close
+              </button>
+            </motion.form>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

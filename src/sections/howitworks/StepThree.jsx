@@ -3,26 +3,32 @@ import { motion } from "framer-motion";
 
 export default function StepThree() {
   return (
-    <section className="relative bg-black text-white py-24 overflow-hidden">
+    <section className="relative bg-black text-white py-16 sm:py-24 overflow-hidden">
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/20 blur-[120px]"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/20 blur-[120px]"></div>
+        <div className="absolute top-0 right-0 w-[400px] sm:w-[500px] h-[300px] sm:h-[500px] bg-purple-500/20 blur-[120px]"></div>
+        <div className="absolute bottom-0 left-0 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-blue-500/20 blur-[120px]"></div>
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
         {/* LEFT */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
+          className="w-full lg:w-1/2"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-8">
+          {/* 🔥 NEW HIGHLIGHT LINE (IMPORTANT) */}
+          <p className="text-sm text-blue-400 mb-3 font-medium">
+            The feature no other loan app has →
+          </p>
+
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold mb-8 leading-tight">
             Repaying is <br /> just as easy.
           </h2>
 
-          <ul className="space-y-6 text-sm text-gray-300">
+          <ul className="space-y-6 text-sm sm:text-base text-gray-300">
             {[
               {
                 title: "Payment options",
@@ -53,7 +59,7 @@ export default function StepThree() {
                 transition={{ delay: 0.1 + i * 0.07 }}
               >
                 <p className="text-green-400 font-medium">{item.title}</p>
-                <p className="text-xs text-gray-400">{item.desc}</p>
+                <p className="text-xs sm:text-sm text-gray-400">{item.desc}</p>
               </motion.li>
             ))}
           </ul>
@@ -65,9 +71,9 @@ export default function StepThree() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.25, duration: 0.7 }}
-          className="flex justify-center"
+          className="w-full lg:w-1/2 flex justify-center"
         >
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 w-full max-w-sm shadow-xl space-y-4">
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-6 w-full max-w-sm shadow-xl space-y-4 hover:scale-[1.02] transition-all duration-300">
             <motion.h3
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -75,20 +81,17 @@ export default function StepThree() {
               transition={{ delay: 0.3 }}
               className="font-semibold text-lg"
             >
-              The part other apps don’t have.
+              Earn to repay. Or just keep it.
             </motion.h3>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.35 }}
-              className="text-xs text-gray-400"
-            >
-              Earn money. Pay it back. Or just keep it.
-            </motion.p>
+            {/* 🔥 NEW FLOW (IMPORTANT FIX) */}
+            <div className="text-xs text-gray-400 space-y-2">
+              <p>Step 1: Complete a gig or task on CreditBuddy</p>
+              <p>Step 2: Earnings land in your Buddy Wallet</p>
+              <p>Step 3: Apply to your loan in one tap</p>
+            </div>
 
-            <div className="space-y-3 text-sm">
+            <div className="space-y-3 text-sm mt-3">
               {[
                 { title: "Product Testing", value: "₹500–₹1000" },
                 { title: "Freelance Tasks", value: "Based on work" },

@@ -3,126 +3,137 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 text-gray-900 overflow-hidden ">
+    <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 text-gray-900 overflow-hidden">
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-purple-500/20 blur-[140px]" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[400px] bg-blue-500/20 blur-[140px]" />
+        <div className="absolute top-0 right-0 w-[500px] sm:w-[600px] h-[300px] sm:h-[400px] bg-purple-500/20 blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[250px] sm:w-[300px] h-[300px] sm:h-[400px] bg-blue-500/20 blur-[120px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-1 py-2 lg:py-10 grid lg:grid-cols-2 gap-1 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-16 grid lg:grid-cols-2 gap-10 items-center">
         {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
         >
-          {/* TAG */}
-          <motion.p
+          {/* PILL */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="inline-block text-[11px] tracking-widest text-gray-600 bg-white/60 px-4 py-1.5 rounded-full mb-5"
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center px-4 py-1.5 rounded-full 
+            bg-white/70 backdrop-blur-md border border-white/30 
+            text-xs font-medium tracking-wide text-gray-700 mb-5 shadow-sm"
           >
-            Borrow. Earn. Learn. Build the Future.
-          </motion.p>
+            Built by students. For students. Finally.
+          </motion.div>
 
           {/* HEADING */}
           <motion.h1
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight mb-4"
+            transition={{ delay: 0.2 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight mb-5"
           >
-            India's first student-focused financial{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              ecosystem
-            </span>{" "}
-            combining responsible credit, real earning opportunities, and
-            financial literacy.
+            Financial freedom for students.{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"></span>{" "}
+            .
           </motion.h1>
 
           {/* DESCRIPTION */}
           <motion.p
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.7 }}
+            transition={{ delay: 0.3 }}
             className="text-gray-700 max-w-xl text-sm md:text-base leading-relaxed mb-3"
           >
-            No more predatory loans. No more financial stress. CreditBuddy is
-            built by students, for students—giving you fair access to credit,
-            ways to earn, and the knowledge to manage your money wisely.
+            Access credit, earn, and grow your money — all in one simple
+            platform.
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-gray-500 text-xs mb-5"
+            transition={{ delay: 0.4 }}
+            className="text-gray-500 text-xs mb-6"
           >
-            No salary slip. No credit history needed. No hidden charges. Ever.
+            Built by students, for students — because traditional finance
+            doesn’t work for you.
           </motion.p>
 
-          {/* BUTTONS */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-5 mb-5"
-          >
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              className="px-6 py-3 rounded-full font-medium text-white 
-              bg-gradient-to-r from-blue-600 to-purple-700 
-              hover:from-blue-500 hover:to-purple-600 
-              transition-all duration-300 shadow-md hover:shadow-lg"
-            >
-              Get Early Access →
-            </motion.button>
-
-            <button className="px-6 py-3 rounded-full font-medium text-purple-600 hover:underline transition">
-              See How It Works →
-            </button>
-          </motion.div>
-
-          {/* FEATURES */}
+          {/* TRUST BADGES */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex flex-wrap gap-5 text-xs md:text-sm text-gray-700"
+            transition={{ delay: 0.5 }}
+            className="flex flex-wrap gap-4 text-xs sm:text-sm text-gray-700 mb-6"
           >
             <span>✔ RBI-Compliant</span>
             <span>✔ Zero Data Selling</span>
             <span>⚡ Disbursed in Minutes</span>
           </motion.div>
+
+          {/* CTA BUTTONS */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 w-full"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              className="w-full sm:w-auto text-center px-6 py-3 rounded-full font-medium text-white 
+              bg-gradient-to-r from-blue-600 to-purple-700 
+              hover:from-blue-500 hover:to-purple-600 
+              transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Get Early Access →
+            </motion.button>
+
+            <button className="w-full sm:w-auto text-center px-6 py-3 rounded-full font-medium text-purple-600 hover:underline transition">
+              See How It Works →
+            </button>
+          </motion.div>
+
+          {/* SOCIAL PROOF */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="text-sm text-gray-700 mt-5"
+          >
+            <span className="font-semibold text-gray-900">2,400+ students</span>{" "}
+            already on the waitlist
+          </motion.p>
+
+          {/* MICRO COPY */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="text-xs text-gray-500 italic mt-1"
+          >
+            No app download needed. Takes 30 seconds.
+          </motion.p>
         </motion.div>
 
         {/* RIGHT UI */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-          className="relative flex justify-center lg:justify-end"
+          transition={{ delay: 0.2 }}
+          className="relative flex justify-center lg:justify-end mt-10 lg:mt-0"
         >
-          {/* MAIN CARD */}
           <motion.div
             animate={{ y: [0, -6, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            transition={{ repeat: Infinity, duration: 6 }}
             className="relative bg-white/30 backdrop-blur-2xl border border-white/40 
-            rounded-3xl p-6 w-[300px] sm:w-[340px] 
+            rounded-3xl p-6 w-[90%] max-w-[340px] 
             shadow-[0_20px_60px_rgba(0,0,0,0.2)]"
           >
-            {/* TOP RIGHT BADGE */}
             <div
               className="absolute top-4 right-4 text-gray-700 bg-white/60 backdrop-blur-xl 
             px-3 py-1 rounded-lg text-[11px] border border-white/30"
@@ -141,7 +152,6 @@ export default function Hero() {
               Withdraw to Bank
             </button>
 
-            {/* BOTTOM BADGE */}
             <motion.div
               animate={{ y: [0, 4, 0] }}
               transition={{ repeat: Infinity, duration: 4 }}

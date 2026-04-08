@@ -2,17 +2,27 @@ import { motion } from "framer-motion";
 
 export default function AboutHero() {
   return (
-    <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 text-black py-24 text-center">
-      <div className="max-w-3xl mx-auto px-6">
+    <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 py-24 text-center overflow-hidden">
+      {/* BACKGROUND GLOW */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-500/20 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/20 blur-[120px]" />
+      </div>
+
+      <div className="relative max-w-3xl mx-auto px-6">
         {/* HEADING */}
         <motion.h1
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
-          className="text-3xl md:text-5xl font-bold leading-tight"
+          className="text-3xl md:text-5xl font-bold leading-tight text-gray-900"
         >
-          We’ve been broke students too.
+          We’ve been{" "}
+          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            broke students
+          </span>{" "}
+          too.
         </motion.h1>
 
         {/* SUBTEXT */}
@@ -21,9 +31,10 @@ export default function AboutHero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-gray-500 mt-4 text-sm md:text-base"
+          className="text-gray-600 mt-5 text-sm md:text-base max-w-xl mx-auto"
         >
-          That’s not a marketing line. That’s why this exists.
+          That’s not a marketing line. It’s the reason CreditBuddy exists —
+          built by students, for students.
         </motion.p>
       </div>
     </section>

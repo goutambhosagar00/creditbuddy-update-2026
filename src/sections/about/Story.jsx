@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Story() {
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="bg-gray-50 py-24">
       <div className="max-w-4xl mx-auto px-6">
         {/* HEADING */}
         <motion.h2
@@ -11,17 +11,17 @@ export default function Story() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
-          className="text-2xl md:text-4xl font-bold mb-6"
+          className="text-3xl md:text-5xl font-bold mb-8 leading-tight"
         >
           Why we built CreditBuddy.
         </motion.h2>
 
-        {/* PARAGRAPHS */}
-        <div className="space-y-4 text-sm md:text-base text-gray-600 leading-relaxed">
+        {/* STORY */}
+        <div className="space-y-5 text-gray-600 leading-relaxed text-sm md:text-base">
           {[
-            "Late nights. Empty wallet. The stress of asking for ₹200 you know will worry your parents.",
-            "India has 40 million college students — driven, capable, building the country’s future. But financial systems treat them like liabilities.",
-            "Banks won’t lend without a salary slip. The apps that will charge 70%+ and send harassment messages.",
+            "Late nights. Empty wallet. The hesitation before asking for ₹200 — knowing it’ll worry your parents.",
+            "India has 40 million college students — ambitious, capable, building the country’s future. Yet financially, they’re treated like risks, not potential.",
+            "Banks won’t lend without a salary slip. And the apps that do? Hidden charges, 70%+ interest, and harassment tactics.",
           ].map((text, i) => (
             <motion.p
               key={i}
@@ -34,15 +34,15 @@ export default function Story() {
             </motion.p>
           ))}
 
-          {/* FINAL LINE (STRONG EMPHASIS) */}
+          {/* FINAL LINE */}
           <motion.p
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="font-medium text-black"
+            className="font-semibold text-black text-base md:text-lg pt-2"
           >
-            We knew this personally. So we built the platform we wish existed.
+            We’ve lived this. So we built the platform we wish we had.
           </motion.p>
         </div>
 
@@ -52,15 +52,15 @@ export default function Story() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.7 }}
-          className="mt-10 border-l-4 border-blue-500 pl-6 bg-white p-6 rounded-xl shadow-sm"
+          className="mt-12 border border-gray-200 bg-white p-6 rounded-2xl shadow-sm"
         >
-          <p className="italic text-gray-700">
-            “Students don’t need to be saved. They need to be respected — given
-            fair credit, real earning opportunities, and knowledge. They’ll take
-            it from there.”
+          <p className="italic text-gray-700 text-sm md:text-base leading-relaxed">
+            “Students don’t need to be saved. They need access — to fair credit,
+            real earning opportunities, and the knowledge to make smart
+            decisions.”
           </p>
 
-          <p className="text-xs text-gray-400 mt-3">— Dev, Founder & CEO</p>
+          <p className="text-xs text-gray-400 mt-4">— Dev, Founder & CEO</p>
         </motion.div>
       </div>
     </section>

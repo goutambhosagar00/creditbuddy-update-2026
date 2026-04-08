@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Newsletter() {
   return (
-    <section className="bg-blue-600 py-16 text-white text-center">
+    <section className="bg-[#F3E8FF] py-20 text-center">
       <div className="max-w-xl mx-auto px-6">
         {/* HEADING */}
         <motion.h2
@@ -11,7 +11,7 @@ export default function Newsletter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-xl md:text-2xl font-semibold mb-6"
+          className="text-2xl md:text-3xl font-bold text-[#6B21A8] mb-6"
         >
           Weekly money tips.
         </motion.h2>
@@ -27,14 +27,16 @@ export default function Newsletter() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="px-4 py-2 rounded-full bg-white text-black w-full sm:w-auto flex-1 outline-none
-            focus:ring-2 focus:ring-white/60 transition"
+            className="px-5 py-3 rounded-full bg-white border border-gray-200 
+            w-full sm:w-auto flex-1 outline-none text-sm
+            focus:ring-2 focus:ring-purple-300 transition"
           />
 
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.95 }}
-            className="px-5 py-2 rounded-full bg-black text-white hover:opacity-90 transition"
+            className="px-6 py-3 rounded-full bg-[#7C3AED] text-white font-medium 
+            hover:opacity-90 transition"
           >
             Subscribe
           </motion.button>

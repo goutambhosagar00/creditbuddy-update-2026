@@ -8,21 +8,33 @@ const posts = [
     title: "Student survival guide",
     category: "Student Life",
     img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    author: "Dev (Founder, CreditBuddy)",
+    date: "March 2026",
+    read: "4 min read",
   },
   {
     title: "Earn money as student",
     category: "Earn",
     img: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    author: "Dev (Founder, CreditBuddy)",
+    date: "March 2026",
+    read: "5 min read",
   },
   {
     title: "What is APR?",
     category: "Learn",
     img: "https://images.unsplash.com/photo-1554224154-22dec7ec8818",
+    author: "Dev (Founder, CreditBuddy)",
+    date: "March 2026",
+    read: "3 min read",
   },
   {
     title: "Build credit score",
     category: "Credit",
     img: "https://images.unsplash.com/photo-1580519542036-c47de6196ba5",
+    author: "Dev (Founder, CreditBuddy)",
+    date: "March 2026",
+    read: "6 min read",
   },
 ];
 
@@ -64,21 +76,32 @@ export default function BlogGrid() {
                 exit={{ opacity: 0, y: 15 }}
                 transition={{ delay: i * 0.05 }}
                 className="bg-white rounded-xl overflow-hidden border border-gray-200 
-                hover:shadow-md hover:-translate-y-[3px] transition-all duration-300"
+                hover:shadow-lg hover:-translate-y-[4px] transition-all duration-300"
               >
+                {/* IMAGE */}
                 <motion.img
                   src={post.img}
-                  alt=""
+                  alt={post.title}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="w-full h-[160px] object-cover"
+                  className="w-full h-[180px] object-cover"
                 />
 
-                <div className="p-4">
-                  <p className="text-xs text-blue-600 mb-1">{post.category}</p>
+                {/* CONTENT */}
+                <div className="p-5">
+                  <p className="text-xs text-blue-600 mb-1 font-medium">
+                    {post.category}
+                  </p>
 
-                  <h3 className="text-sm font-semibold">{post.title}</h3>
+                  <h3 className="text-sm md:text-base font-semibold mb-2">
+                    {post.title}
+                  </h3>
+
+                  {/* ✅ NEW META INFO */}
+                  <p className="text-xs text-gray-400">
+                    By {post.author} · {post.read} · {post.date}
+                  </p>
                 </div>
               </motion.div>
             ))}

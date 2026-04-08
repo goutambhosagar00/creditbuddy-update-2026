@@ -3,24 +3,25 @@ import { motion } from "framer-motion";
 
 export default function StepOne() {
   return (
-    <section className="bg-gray-50 py-20">
-      <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+    <section className="bg-gray-50 py-16 sm:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
         {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
+          className="w-full lg:w-1/2"
         >
           <span className="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full">
             STEP 1
           </span>
 
-          <h2 className="text-2xl md:text-4xl font-bold mt-4 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mt-4 mb-6 leading-tight">
             Create your account. 2 minutes.
           </h2>
 
-          <ul className="space-y-5 text-gray-600 text-sm">
+          <ul className="space-y-5 text-gray-600 text-sm sm:text-base">
             {[
               {
                 title: "What you need",
@@ -28,7 +29,7 @@ export default function StepOne() {
               },
               {
                 title: "Download",
-                desc: "Android app (iOS coming soon). Free.",
+                desc: "Android app — download free. iOS coming Q3 2026.",
               },
               {
                 title: "Phone verify",
@@ -51,10 +52,12 @@ export default function StepOne() {
                 transition={{ delay: 0.1 + i * 0.06 }}
                 className="flex gap-3"
               >
-                <span className="text-blue-500">✔</span>
+                <span className="text-blue-600 mt-[2px]">✔</span>
                 <div>
-                  <p className="font-medium text-black">{item.title}</p>
-                  <p className="text-xs text-gray-500">{item.desc}</p>
+                  <p className="font-medium text-gray-900">{item.title}</p>
+                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.li>
             ))}
@@ -67,15 +70,15 @@ export default function StepOne() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          className="flex justify-center"
+          className="w-full lg:w-1/2 flex justify-center"
         >
-          <div className="w-[260px] h-[500px] bg-black rounded-3xl border-[6px] border-gray-800 shadow-xl p-4">
+          <div className="w-[240px] sm:w-[260px] h-[460px] sm:h-[500px] bg-black rounded-3xl border-[6px] border-gray-800 shadow-xl p-3 sm:p-4">
             <div className="bg-white rounded-2xl h-full p-4 flex flex-col justify-between">
-              <h3 className="text-center text-sm font-medium mb-4">
+              <h3 className="text-center text-sm font-medium mb-4 text-gray-900">
                 Verify Identity
               </h3>
 
-              <div className="space-y-3 text-xs">
+              <div className="space-y-3 text-xs sm:text-sm">
                 {["Phone Verified", "Student ID Verified", "KYC Complete"].map(
                   (item, i) => (
                     <motion.div
@@ -89,7 +92,7 @@ export default function StepOne() {
                       }`}
                     >
                       <span>{item}</span>
-                      <span className={i === 2 ? "" : "text-blue-500"}>✔</span>
+                      <span className={i === 2 ? "" : "text-blue-600"}>✔</span>
                     </motion.div>
                   ),
                 )}
@@ -100,7 +103,7 @@ export default function StepOne() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
-                className="mt-6 bg-blue-600 text-white py-2 rounded-lg text-sm hover:opacity-90 transition"
+                className="mt-6 w-full py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:opacity-90 transition"
               >
                 Continue
               </motion.button>

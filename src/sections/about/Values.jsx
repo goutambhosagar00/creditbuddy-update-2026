@@ -36,16 +36,18 @@ const values = [
 
 export default function Values() {
   return (
-    <section className="bg-gray-50 py-24">
+    <section className="bg-gray-50 py-20 md:py-24">
       {/* HEADING */}
       <motion.div
         initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="max-w-6xl mx-auto px-6 text-center mb-12"
+        className="max-w-6xl mx-auto px-6 text-center mb-14"
       >
-        <h2 className="text-3xl md:text-5xl font-bold">How we work.</h2>
+        <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+          The values behind <span className="text-blue-600">CreditBuddy</span>.
+        </h2>
       </motion.div>
 
       {/* GRID */}
@@ -58,23 +60,20 @@ export default function Values() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
             className="bg-white border border-gray-200 rounded-2xl p-6 text-left 
-            hover:shadow-md hover:-translate-y-[2px] transition-all duration-300"
+            hover:shadow-lg hover:-translate-y-[3px] transition-all duration-300"
           >
-            {/* ICON */}
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.1 + i * 0.08 }}
-              className="text-2xl mb-3"
-            >
+            {/* ICON BOX */}
+            <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 mb-4 text-xl">
               {item.icon}
-            </motion.div>
+            </div>
 
             {/* TITLE */}
-            <h3 className="font-semibold mb-2 text-gray-900">{item.title}</h3>
+            <h3 className="font-semibold text-base md:text-lg mb-2 text-gray-900">
+              {item.title}
+            </h3>
 
             {/* DESC */}
-            <p className="text-sm text-gray-600">{item.desc}</p>
+            <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
           </motion.div>
         ))}
       </div>

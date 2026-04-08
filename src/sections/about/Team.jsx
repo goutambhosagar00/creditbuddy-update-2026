@@ -6,32 +6,31 @@ const team = [
     name: "Debasish Mallick (Dev)",
     role: "Founder & CEO",
     desc: "A student founder building CreditBuddy to solve real financial challenges students face. Combining technology and insight to create a system where students can borrow, earn, and grow with confidence.",
-    image: "../../../public/team/dev.jpeg",
+    image: "/team/dev.jpeg",
     linkedin: "https://www.linkedin.com/in/debasishmallick077",
   },
   {
     name: "Goutam Bhosagar",
     role: "Chief Technology Officer (CTO)",
-    desc: "Leads the technology behind CreditBuddy, building scalable and reliable systems designed around real student needs. Focused on making finance simple, accessible, and intuitive through tech.",
-    image: "../../../public/team/goutampass.jpg",
+    desc: "Leads the technology behind CreditBuddy, building scalable and reliable systems designed around real student needs.",
+    image: "/team/goutampass.jpg",
     linkedin: "#",
   },
   {
     name: "Ipsit Kumar Thakur",
     role: "Technical Lead",
-    desc: "Transforms student problems into practical tech solutions. Focused on building fast, efficient, and user-friendly features that fit naturally into student life.",
+    desc: "Transforms student problems into practical tech solutions. Focused on building fast and user-friendly features.",
     image: "/team/ipsit.jpg",
     linkedin: "#",
   },
   {
     name: "Ayush Nanda",
     role: "Growth & Operations Lead",
-    desc: "Drives growth through data, strategy, and strong campus connections. Focused on scaling a tech-enabled platform that truly resonates with students.",
-    image: "../../../public/team/ayush.jpeg",
+    desc: "Drives growth through data, strategy, and strong campus connections.",
+    image: "/team/ayush.jpeg",
     linkedin: "#",
   },
 ];
-
 export default function Team() {
   const [expanded, setExpanded] = useState({});
 
