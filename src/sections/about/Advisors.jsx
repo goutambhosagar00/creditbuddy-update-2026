@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const advisors = [
   {
-    name: "CS Saurav Pradhan",
+    name: "CS Sushant Pradhan",
     role: "Legal Advisor",
     desc: "RBI frameworks and governance — ensuring full regulatory compliance.",
   },
@@ -18,14 +18,14 @@ const advisors = [
     desc: "Drives NBFC partnerships, lending structure, and capital strategy.",
   },
   {
-    name: "Shashank Kumar Purohit",
+    name: "Shekhar Kumar Purohit",
     role: "Growth",
-    desc: "Leads go-to-market strategy and revenue scaling.",
+    desc: "",
   },
   {
-    name: "Ish Kumar Thakar",
-    role: "Tech Advisor",
-    desc: "Fullstack + mobile architecture. Previously scaled a student platform to 1L+ users.",
+    name: "Ayush Nanda - Busineess Advisor  ",
+    role: "Marketing & Growth",
+    desc: "Fundraising guidance and national expansion strategy.",
   },
 ];
 

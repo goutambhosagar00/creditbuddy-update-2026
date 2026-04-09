@@ -58,7 +58,7 @@ export default function Borrow() {
                 },
                 {
                   title: "Cost",
-                  desc: "₹150 flat fee. No interest. No hidden charges.",
+                  desc: "Min flat fees No interest. No hidden charges.",
                 },
                 {
                   title: "What happens if late?",

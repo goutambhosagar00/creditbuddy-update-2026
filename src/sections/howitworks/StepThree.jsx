@@ -93,7 +93,7 @@ export default function StepThree() {
 
             <div className="space-y-3 text-sm mt-3">
               {[
-                { title: "Product Testing", value: "₹500–₹1000" },
+                { title: "Product Testing", value: "money on feedback" },
                 { title: "Freelance Tasks", value: "Based on work" },
                 { title: "Campus Promotion", value: "Earnings grow" },
               ].map((item, i) => (

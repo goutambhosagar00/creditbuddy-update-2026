@@ -21,15 +21,15 @@ export default function TrustCTA() {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
             {[
               {
-                value: "75%",
+                value: "79%",
                 text: "Students use CreditBuddy for urgent needs",
               },
               {
-                value: "62%",
+                value: "67%",
                 text: "Prefer us over traditional loan apps",
               },
               {
-                value: "78%",
+                value: "86%",
                 text: "Report lower stress after using CreditBuddy",
               },
             ].map((item, i) => (
@@ -61,7 +61,7 @@ export default function TrustCTA() {
               CreditBuddy.”
             </p>
             <p className="mt-3 text-xs text-gray-400">
-              — Sneha T., 3rd Year Student
+              — Sneha Agrawal T., IIM Bangalore
             </p>
           </motion.div>
         </div>

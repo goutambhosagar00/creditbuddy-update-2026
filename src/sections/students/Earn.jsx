@@ -46,7 +46,7 @@ export default function Earn() {
               {
                 icon: "🧪",
                 title: "Product Testing",
-                desc: "Test apps and services. Earn ₹500–₹1000 per task.",
+                desc: "Test apps and services. Give feedback and earn per task.",
               },
               {
                 icon: "💻",

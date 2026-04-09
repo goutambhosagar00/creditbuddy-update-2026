@@ -12,7 +12,7 @@ const features = [
   },
   {
     title: "Earn",
-    desc: "Complete simple tasks and gigs. Earn real money directly to your account.",
+    desc: "Complete simple tasks and gigs to earn money.",
     color: "from-green-500 to-green-600",
     border: "hover:border-green-500",
     tag: "Real Work • Real Money",

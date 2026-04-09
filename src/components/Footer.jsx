@@ -3,120 +3,130 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-gray-400 pt-14 pb-8 border-t border-white/10">
-      {/* TOP GRID */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10"
-      >
-        {/* LOGO + INFO */}
-        <div>
-          <div className="bg-white text-black px-4 py-1.5 rounded-xl inline-block font-semibold mb-4">
-            CreditBuddy
+    <footer className="relative text-gray-300">
+      {/* BACKGROUND IMAGE */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+          alt="bg"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+      </div>
+
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-14">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="grid md:grid-cols-4 gap-10"
+        >
+          {/* LOGO + INFO */}
+          <div>
+            <h2 className=" font-bold text-purple-400 mb-3">
+              CreditBuddy Partners Pvt Ltd
+            </h2>
+
+            <p className="text-sm mb-4">
+              Building a better financial ecosystem for students across India.
+            </p>
+
+            {/* ADDRESS */}
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Corporate office address: <br />
+              Sambalpur, Odisha, India
+            </p>
+
+            {/* CONTACT */}
+            <div className="mt-4 text-sm">
+              +<p>✉️ info@creditbuddy.org.in</p>
+            </div>
           </div>
 
-          <p className="text-sm text-gray-400 mb-4 leading-relaxed">
-            Building better financial tools for students across India.
+          {/* IMPORTANT LINKS */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Important Links</h4>
+
+            <ul className="space-y-2 text-sm">
+              {[
+                "Privacy",
+                "Terms of services",
+                "Disclaimer",
+                "Safety & security",
+                "Customer service",
+                "Rates & pricing",
+                "Policies",
+                "Product info",
+              ].map((item, i) => (
+                <li key={i} className="hover:text-white cursor-pointer">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* COMPANY */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Company</h4>
+
+            <ul className="space-y-2 text-sm">
+              {[
+                "Careers",
+                "Help center",
+                "Contact us",
+                "Report fraud",
+                "Press",
+                "About Us",
+              ].map((item, i) => (
+                <li key={i} className="hover:text-white cursor-pointer">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CONNECT */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Connect with us</h4>
+
+            <div className="flex gap-4 mb-6">
+              {["X", "in", "f", "ig"].map((icon, i) => (
+                <div
+                  key={i}
+                  className="w-10 h-10 bg-white/10 flex items-center justify-center rounded-full 
+                  hover:bg-white/20 transition cursor-pointer"
+                >
+                  {icon}
+                </div>
+              ))}
+            </div>
+
+            {/* SECURITY */}
+            <div className="text-sm space-y-2">
+              <p>🔒 256 Bit SSL Security</p>
+              <p>✔ RBI Guidelines Followed</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* BOTTOM */}
+        <div className="mt-10 pt-6 border-t border-white/10 text-xs text-gray-400 flex flex-col md:flex-row justify-between">
+          <p>
+            © {new Date().getFullYear()} CreditBuddy Pvt Ltd. All Rights
+            Reserved.
           </p>
 
-          {/* ✅ FIXED EMAIL + LOCATION */}
-          <p className="text-xs text-gray-500">
-            hello@creditbuddy.in <br />
-            Sambalpur, Odisha, India
-          </p>
-        </div>
-
-        {/* PRODUCT */}
-        <div>
-          <h4 className="text-white font-semibold mb-4">Product</h4>
-          <ul className="space-y-2 text-sm">
-            {[
-              { name: "How it works", link: "/how-it-works" },
-              { name: "For Students", link: "/students" },
-              { name: "Borrow", link: "/borrow" },
-              { name: "Earn", link: "/earn" },
-            ].map((item, i) => (
-              <li key={i}>
-                <a href={item.link} className="hover:text-white transition">
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* COMPANY */}
-        <div>
-          <h4 className="text-white font-semibold mb-4">Company</h4>
-          <ul className="space-y-2 text-sm">
-            {[
-              { name: "About", link: "/about" },
-              { name: "Blog", link: "/blog" },
-              { name: "Careers", link: "/careers" },
-              { name: "Contact", link: "/contact" },
-            ].map((item, i) => (
-              <li key={i}>
-                <a href={item.link} className="hover:text-white transition">
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* CONNECT */}
-        <div>
-          <h4 className="text-white font-semibold mb-4">Connect</h4>
-
-          {/* SOCIAL */}
-          <div className="flex gap-3 mb-5">
-            {["in", "ig", "tw"].map((item, i) => (
-              <div
-                key={i}
-                className="w-9 h-9 bg-white/10 flex items-center justify-center rounded-full 
-                hover:bg-white/20 hover:scale-105 transition duration-300 cursor-pointer text-sm"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-
-          {/* TRUST BOX */}
-          <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-xs space-y-2 text-gray-400">
-            <p>✔ RBI Compliant</p>
-            <p>✔ Data Security</p>
-            <p>✔ Student First</p>
+          <div className="flex gap-4 mt-3 md:mt-0">
+            <a href="#" className="hover:text-white">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-white">
+              Terms
+            </a>
           </div>
         </div>
-      </motion.div>
-
-      {/* BOTTOM */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3 }}
-        className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs flex flex-col md:flex-row justify-between gap-4"
-      >
-        {/* ✅ FIXED COPYRIGHT */}
-        <p className="text-gray-500">
-          © {new Date().getFullYear()} CreditBuddy Partners Private Limited. All
-          rights reserved.
-        </p>
-
-        {/* ✅ FIXED LINKS */}
-        <div className="flex gap-4">
-          <a href="/privacy-policy" className="hover:text-white transition">
-            Privacy Policy
-          </a>
-          <a href="/terms" className="hover:text-white transition">
-            Terms
-          </a>
-        </div>
-      </motion.div>
+      </div>
     </footer>
   );
 }

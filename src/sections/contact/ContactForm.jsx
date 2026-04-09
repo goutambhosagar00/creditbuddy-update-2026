@@ -17,18 +17,16 @@ export default function ContactForm() {
     setLoading(true);
 
     emailjs
-      .sendForm(
-        "service_ddx4hml",
-        "template_vdh7k5b",
-        formRef.current,
-        "K1pRcwo5jf5qnjgYN",
-      )
+      .sendForm("service_lo7reok", "template_oulia1c", formRef.current, {
+        publicKey: "f83weTwe8s5KO54P9",
+      })
       .then(() => {
         toast.success("Message sent successfully 🚀");
         formRef.current.reset();
         setLoading(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
         toast.error("Failed to send message ❌");
         setLoading(false);
       });
@@ -40,19 +38,17 @@ export default function ContactForm() {
     setInvestorLoading(true);
 
     emailjs
-      .sendForm(
-        "service_ddx4hml",
-        "template_investor", // 👉 create new template
-        investorRef.current,
-        "K1pRcwo5jf5qnjgYN",
-      )
+      .sendForm("service_lo7reok", "template_oulia1c", investorRef.current, {
+        publicKey: "f83weTwe8s5KO54P9",
+      })
       .then(() => {
         toast.success("Deck sent to your email 📩");
         investorRef.current.reset();
         setInvestorLoading(false);
         setOpen(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
         toast.error("Failed to send ❌");
         setInvestorLoading(false);
       });
@@ -119,38 +115,10 @@ export default function ContactForm() {
 
         {/* ================= RIGHT SIDE ================= */}
         <div className="space-y-6">
-          {/* CONTACT INFO */}
           <div className="bg-white border border-gray-200 rounded-2xl p-6">
             <h3 className="font-semibold mb-4">Find us directly.</h3>
             <p className="text-sm text-gray-600">📧 hello@creditbuddy.in</p>
             <p className="text-sm text-gray-600">📍 Sambalpur, Odisha, India</p>
-          </div>
-
-          {/* INVESTOR BOX */}
-          <div className="bg-black text-white rounded-2xl p-6">
-            <h3 className="text-green-400 font-semibold mb-3">
-              For investors — the 60-sec version.
-            </h3>
-
-            <p className="text-sm text-gray-300 mb-4">
-              India’s student credit market is broken. We’re building a fair,
-              RBI-aligned system.
-            </p>
-
-            <ul className="text-xs text-gray-400 space-y-1 mb-4">
-              <li>Market: $20B+</li>
-              <li>Model: Earn + Borrow</li>
-              <li>Stage: Pre-seed</li>
-              <li>Raising: ₹X Cr</li>
-              <li>Traction: X waitlist users</li>
-            </ul>
-
-            <button
-              onClick={() => setOpen(true)}
-              className="w-full py-2 bg-white text-black rounded-lg"
-            >
-              Request Deck →
-            </button>
           </div>
         </div>
       </div>
@@ -158,18 +126,11 @@ export default function ContactForm() {
       {/* ================= MODAL ================= */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+          <motion.div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
             <motion.form
               ref={investorRef}
               onSubmit={sendInvestor}
               className="bg-white p-6 rounded-2xl w-full max-w-md"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
             >
               <h3 className="text-lg font-semibold mb-4">
                 Request Investor Deck

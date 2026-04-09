@@ -27,7 +27,7 @@ export default function Hero() {
             bg-white/70 backdrop-blur-md border border-white/30 
             text-xs font-medium tracking-wide text-gray-700 mb-5 shadow-sm"
           >
-            Built by students. For students. Finally.
+            Built For Students By The Students
           </motion.div>
 
           {/* HEADING */}
