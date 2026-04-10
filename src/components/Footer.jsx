@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import {
   FaInstagram,
   FaLinkedin,
@@ -13,7 +12,7 @@ import {
 export default function Footer() {
   return (
     <footer className="relative text-gray-300">
-      {/* BACKGROUND IMAGE */}
+      {/* BACKGROUND */}
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
@@ -31,7 +30,7 @@ export default function Footer() {
           transition={{ duration: 0.6 }}
           className="grid md:grid-cols-4 gap-10"
         >
-          {/* LOGO + INFO */}
+          {/* INFO */}
           <div>
             <h2 className="font-bold text-purple-400 mb-3">
               CreditBuddy Partners Pvt Ltd
@@ -41,16 +40,12 @@ export default function Footer() {
               Building a better financial ecosystem for students across India.
             </p>
 
-            <p className="text-sm text-gray-400 leading-relaxed">
-              Corporate office address: <br />
-              Sambalpur, Odisha, India
-            </p>
+            <p className="text-sm text-gray-400">Sambalpur, Odisha, India</p>
 
-            <div className="mt-4 text-sm">
-              <p>✉️ info@creditbuddy.org.in</p>
-            </div>
+            <p className="mt-3 text-sm">✉️ info@creditbuddy.org.in</p>
           </div>
 
+          {/* ✅ IMPORTANT LINKS (FIXED) */}
           <div>
             <h4 className="text-white font-semibold mb-4">Important Links</h4>
 
@@ -58,35 +53,35 @@ export default function Footer() {
               {[
                 {
                   name: "Privacy",
-                  file: "../../public/pdfs/02_CreditBuddy_Privacy_Policy.pdf.pdf",
+                  file: "/pdfs/02_CreditBuddy_Privacy_Policy.pdf",
                 },
                 {
                   name: "Terms of services",
-                  file: "../../public/pdfs/01_CreditBuddy_Terms_of_Service.pdf.pdf",
+                  file: "/pdfs/01_CreditBuddy_Terms_of_Service.pdf",
                 },
                 {
                   name: "Disclaimer",
-                  file: "../../public/pdfs/03_CreditBuddy_Disclaimer.pdf.pdf",
+                  file: "/pdfs/03_CreditBuddy_Disclaimer.pdf",
                 },
                 {
                   name: "Safety & security",
-                  file: "../../public/pdfs/04_CreditBuddy_Safety_and_Security.pdf.pdf",
+                  file: "/pdfs/04_CreditBuddy_Safety_and_Security.pdf",
                 },
                 {
                   name: "Customer service",
-                  file: "../../public/pdfs/05_CreditBuddy_Customer_Service.pdf.pdf",
+                  file: "/pdfs/05_CreditBuddy_Customer_Service.pdf",
                 },
                 {
                   name: "Rates & pricing",
-                  file: "../../public/pdfs/06_CreditBuddy_Rates_and_Pricing.pdf.pdf",
+                  file: "/pdfs/06_CreditBuddy_Rates_and_Pricing.pdf",
                 },
                 {
                   name: "Policies",
-                  file: "../../public/pdfs/07_CreditBuddy_Policies.pdf.pdf",
+                  file: "/pdfs/07_CreditBuddy_Policies.pdf",
                 },
                 {
                   name: "Product info",
-                  file: "../../public/pdfs/08_CreditBuddy_Product_Information.pdf.pdf",
+                  file: "/pdfs/08_CreditBuddy_Product_Information.pdf",
                 },
               ].map((item, i) => (
                 <li key={i}>
@@ -123,11 +118,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* CONNECT */}
+          {/* SOCIAL */}
           <div>
             <h4 className="text-white font-semibold mb-4">Connect with us</h4>
 
-            {/* ✅ SOCIAL ICONS WITH LINKS */}
             <div className="flex flex-wrap gap-4 mb-6">
               <a
                 href="https://x.com/CreditBuddyX"
@@ -135,7 +129,7 @@ export default function Footer() {
                 rel="noreferrer"
                 className="icon"
               >
-                <FaTwitter size={18} />
+                <FaTwitter />
               </a>
 
               <a
@@ -144,16 +138,16 @@ export default function Footer() {
                 rel="noreferrer"
                 className="icon"
               >
-                <FaLinkedin size={18} />
+                <FaLinkedin />
               </a>
 
               <a
-                href="https://www.instagram.com/creditbuddy_official?igsh=ZzZuYXZ0NDgwb2x6"
+                href="https://www.instagram.com/creditbuddy_official"
                 target="_blank"
                 rel="noreferrer"
                 className="icon"
               >
-                <FaInstagram size={18} />
+                <FaInstagram />
               </a>
 
               <a
@@ -162,7 +156,7 @@ export default function Footer() {
                 rel="noreferrer"
                 className="icon"
               >
-                <FaYoutube size={18} />
+                <FaYoutube />
               </a>
 
               <a
@@ -171,7 +165,7 @@ export default function Footer() {
                 rel="noreferrer"
                 className="icon"
               >
-                <FaWhatsapp size={18} />
+                <FaWhatsapp />
               </a>
 
               <a
@@ -180,24 +174,18 @@ export default function Footer() {
                 rel="noreferrer"
                 className="icon"
               >
-                <FaTelegram size={18} />
+                <FaTelegram />
               </a>
             </div>
 
-            {/* SECURITY */}
-            <div className="text-sm space-y-2">
-              <p>🔒 256 Bit SSL Security</p>
-              <p>✔ RBI Guidelines Followed</p>
-            </div>
+            <p className="text-sm">🔒 256 Bit SSL Security</p>
+            <p className="text-sm">✔ RBI Guidelines Followed</p>
           </div>
         </motion.div>
 
         {/* BOTTOM */}
-        <div className="mt-10 pt-6 border-t border-white/10 text-xs text-gray-400 flex flex-col md:flex-row justify-between">
-          <p>
-            © {new Date().getFullYear()} CreditBuddy Pvt Ltd. All Rights
-            Reserved.
-          </p>
+        <div className="mt-10 pt-6 border-t border-white/10 text-xs text-gray-400">
+          © {new Date().getFullYear()} CreditBuddy Pvt Ltd. All Rights Reserved.
         </div>
       </div>
     </footer>
