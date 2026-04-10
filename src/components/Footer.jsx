@@ -53,35 +53,27 @@ export default function Footer() {
               {[
                 {
                   name: "Privacy",
-                  file: "/pdfs/02_CreditBuddy_Privacy_Policy.pdf",
+                  file: "/pdfs/privacy-policy.pdf",
                 },
                 {
                   name: "Terms of services",
-                  file: "/pdfs/01_CreditBuddy_Terms_of_Service.pdf",
+                  file: "/pdfs/terms-of-service.pdf",
                 },
                 {
                   name: "Disclaimer",
-                  file: "/pdfs/03_CreditBuddy_Disclaimer.pdf",
+                  file: "/pdfs/disclaimer.pdf",
                 },
                 {
                   name: "Safety & security",
-                  file: "/pdfs/04_CreditBuddy_Safety_and_Security.pdf",
+                  file: "/pdfs/safety-security.pdf",
                 },
                 {
-                  name: "Customer service",
-                  file: "/pdfs/05_CreditBuddy_Customer_Service.pdf",
+                  name: "Regulatory Disclosure",
+                  file: "/pdfs/Regulatory_Disclosure.pdf",
                 },
                 {
-                  name: "Rates & pricing",
-                  file: "/pdfs/06_CreditBuddy_Rates_and_Pricing.pdf",
-                },
-                {
-                  name: "Policies",
-                  file: "/pdfs/07_CreditBuddy_Policies.pdf",
-                },
-                {
-                  name: "Product info",
-                  file: "/pdfs/08_CreditBuddy_Product_Information.pdf",
+                  name: "User Agreement",
+                  file: "/pdfs/User_Agreement.pdf",
                 },
               ].map((item, i) => (
                 <li key={i}>
