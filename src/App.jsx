@@ -7,6 +7,8 @@ import Students from "./pages/Students";
 import Ambassadors from "./pages/Ambassadors";
 import Blog from "./pages/Blog";
 import ScrollToTop from "./ScrollToTop";
+import BlogDetails from "./sections/blog/BlogDetails";
+import Privacy from "./pages/Privacy";
 function App() {
   return (
     <Router>
@@ -20,6 +22,8 @@ function App() {
         <Route path="/students" element={<Students />} />
         <Route path="/ambassadors" element={<Ambassadors />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogDetails />} />
+        <Route path="/privacy" element={<Privacy />} />
         {/* Fallback (optional) */}
         <Route
           path="*"

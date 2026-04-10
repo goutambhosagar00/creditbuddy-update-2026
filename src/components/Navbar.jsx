@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "../../public/creditbuddy-main-logo.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -31,17 +32,21 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4   flex items-center justify-between">
           {/* LOGO */}
-          <Link to="/" className="flex items-center">
-            <motion.h1
-              whileHover={{ scale: 1.03 }}
-              className="text-xl md:text-2xl font-semibold tracking-tight bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent"
+          <Link to="/" className="flex items-center gap-2">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center gap-2"
             >
-              CreditBuddy
-            </motion.h1>
+              {/* LOGO */}
+              <img
+                src={logo}
+                alt="CreditBuddy"
+                className="h-8 w-auto object-contain"
+              />
+            </motion.div>
           </Link>
-
           {/* DESKTOP MENU */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm">
+          <nav className="hidden lg:flex items-center gap-8 text-md font-medium">
             {[
               { name: "Home", path: "/" },
               { name: "How It Works", path: "/how-it-works" },

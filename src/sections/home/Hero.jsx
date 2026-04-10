@@ -27,7 +27,8 @@ export default function Hero() {
             bg-white/70 backdrop-blur-md border border-white/30 
             text-xs font-medium tracking-wide text-gray-700 mb-5 shadow-sm"
           >
-            Built For Students By The Students
+            India's first student-focused financial ecosystem combining
+            responsible credit,
           </motion.div>
 
           {/* HEADING */}
@@ -37,7 +38,7 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight mb-5"
           >
-            Financial freedom for students.{" "}
+            real earning opportunities, and financial literacy.{" "}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"></span>{" "}
             .
           </motion.h1>
@@ -49,8 +50,9 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="text-gray-700 max-w-xl text-sm md:text-base leading-relaxed mb-3"
           >
-            Access credit, earn, and grow your money — all in one simple
-            platform.
+            No more predatory loans. No more financial stress. CreditBuddy is
+            built by students, for students — giving you fair access to credit,
+            ways to earn, and the knowledge to manage your money wisely.
           </motion.p>
 
           <motion.p
@@ -59,8 +61,7 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
             className="text-gray-500 text-xs mb-6"
           >
-            Built by students, for students — because traditional finance
-            doesn’t work for you.
+            No salary slip. No credit history needed. No hidden charges. Ever.
           </motion.p>
 
           {/* TRUST BADGES */}

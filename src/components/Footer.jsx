@@ -1,5 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+  FaYoutube,
+  FaWhatsapp,
+  FaTelegram,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -24,7 +33,7 @@ export default function Footer() {
         >
           {/* LOGO + INFO */}
           <div>
-            <h2 className=" font-bold text-purple-400 mb-3">
+            <h2 className="font-bold text-purple-400 mb-3">
               CreditBuddy Partners Pvt Ltd
             </h2>
 
@@ -32,35 +41,63 @@ export default function Footer() {
               Building a better financial ecosystem for students across India.
             </p>
 
-            {/* ADDRESS */}
             <p className="text-sm text-gray-400 leading-relaxed">
               Corporate office address: <br />
               Sambalpur, Odisha, India
             </p>
 
-            {/* CONTACT */}
             <div className="mt-4 text-sm">
-              +<p>✉️ info@creditbuddy.org.in</p>
+              <p>✉️ info@creditbuddy.org.in</p>
             </div>
           </div>
 
-          {/* IMPORTANT LINKS */}
           <div>
             <h4 className="text-white font-semibold mb-4">Important Links</h4>
 
             <ul className="space-y-2 text-sm">
               {[
-                "Privacy",
-                "Terms of services",
-                "Disclaimer",
-                "Safety & security",
-                "Customer service",
-                "Rates & pricing",
-                "Policies",
-                "Product info",
+                {
+                  name: "Privacy",
+                  file: "../../public/pdfs/02_CreditBuddy_Privacy_Policy.pdf.pdf",
+                },
+                {
+                  name: "Terms of services",
+                  file: "../../public/pdfs/01_CreditBuddy_Terms_of_Service.pdf.pdf",
+                },
+                {
+                  name: "Disclaimer",
+                  file: "../../public/pdfs/03_CreditBuddy_Disclaimer.pdf.pdf",
+                },
+                {
+                  name: "Safety & security",
+                  file: "../../public/pdfs/04_CreditBuddy_Safety_and_Security.pdf.pdf",
+                },
+                {
+                  name: "Customer service",
+                  file: "../../public/pdfs/05_CreditBuddy_Customer_Service.pdf.pdf",
+                },
+                {
+                  name: "Rates & pricing",
+                  file: "../../public/pdfs/06_CreditBuddy_Rates_and_Pricing.pdf.pdf",
+                },
+                {
+                  name: "Policies",
+                  file: "../../public/pdfs/07_CreditBuddy_Policies.pdf.pdf",
+                },
+                {
+                  name: "Product info",
+                  file: "../../public/pdfs/08_CreditBuddy_Product_Information.pdf.pdf",
+                },
               ].map((item, i) => (
-                <li key={i} className="hover:text-white cursor-pointer">
-                  {item}
+                <li key={i}>
+                  <a
+                    href={item.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition"
+                  >
+                    {item.name}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -90,16 +127,61 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Connect with us</h4>
 
-            <div className="flex gap-4 mb-6">
-              {["X", "in", "f", "ig"].map((icon, i) => (
-                <div
-                  key={i}
-                  className="w-10 h-10 bg-white/10 flex items-center justify-center rounded-full 
-                  hover:bg-white/20 transition cursor-pointer"
-                >
-                  {icon}
-                </div>
-              ))}
+            {/* ✅ SOCIAL ICONS WITH LINKS */}
+            <div className="flex flex-wrap gap-4 mb-6">
+              <a
+                href="https://x.com/CreditBuddyX"
+                target="_blank"
+                rel="noreferrer"
+                className="icon"
+              >
+                <FaTwitter size={18} />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/creditbuddy/"
+                target="_blank"
+                rel="noreferrer"
+                className="icon"
+              >
+                <FaLinkedin size={18} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/creditbuddy_official?igsh=ZzZuYXZ0NDgwb2x6"
+                target="_blank"
+                rel="noreferrer"
+                className="icon"
+              >
+                <FaInstagram size={18} />
+              </a>
+
+              <a
+                href="https://www.youtube.com/channel/UCW2mT5e2qFsDY1O58VXNzig"
+                target="_blank"
+                rel="noreferrer"
+                className="icon"
+              >
+                <FaYoutube size={18} />
+              </a>
+
+              <a
+                href="https://whatsapp.com/channel/0029VbBzvW7FMqrV5Qj8SG0T"
+                target="_blank"
+                rel="noreferrer"
+                className="icon"
+              >
+                <FaWhatsapp size={18} />
+              </a>
+
+              <a
+                href="https://t.me/creditbuddyofficialchannel"
+                target="_blank"
+                rel="noreferrer"
+                className="icon"
+              >
+                <FaTelegram size={18} />
+              </a>
             </div>
 
             {/* SECURITY */}
@@ -116,15 +198,6 @@ export default function Footer() {
             © {new Date().getFullYear()} CreditBuddy Pvt Ltd. All Rights
             Reserved.
           </p>
-
-          <div className="flex gap-4 mt-3 md:mt-0">
-            <a href="#" className="hover:text-white">
-              Privacy
-            </a>
-            <a href="#" className="hover:text-white">
-              Terms
-            </a>
-          </div>
         </div>
       </div>
     </footer>
