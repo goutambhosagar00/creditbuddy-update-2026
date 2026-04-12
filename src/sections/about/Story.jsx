@@ -20,8 +20,8 @@ export default function Story() {
         <div className="space-y-5 text-gray-600 leading-relaxed text-sm md:text-base">
           {[
             "Late nights. Empty wallet. The hesitation before asking for ₹200 — knowing it’ll worry your parents.",
-            "India has 40 million college students — ambitious, capable, building the country’s future. Yet financially, they’re treated like risks, not potential.",
-            "Banks won’t lend without a salary slip. And the apps that do? Hidden charges, 70%+ interest, and harassment tactics.",
+            "India has Very high college students — ambitious, capable, building the country’s future. Yet financially, they’re treated like risks, not potential.",
+            "Banks won’t lend without a salary slip. And the apps that do? Hidden charges, Very high interest, and harassment tactics.",
           ].map((text, i) => (
             <motion.p
               key={i}

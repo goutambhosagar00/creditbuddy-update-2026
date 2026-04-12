@@ -16,75 +16,84 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isActive = (path) =>
-    location.pathname === path
-      ? "text-blue-600 font-semibold"
-      : "text-gray-700 hover:text-black";
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "How It Works", path: "/how-it-works" },
+    { name: "Students", path: "/students" },
+    { name: "Ambassadors", path: "/ambassadors" },
+    { name: "Blog", path: "/blog" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-200"
-            : "bg-white border-b border-gray-200"
+            ? "bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border-b border-white/30"
+            : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4   flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
           {/* LOGO */}
-          <Link to="/" className="flex items-center gap-2">
-            <motion.div
+          <Link to="/" className="flex items-center gap-2 group">
+            <motion.img
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2"
-            >
-              {/* LOGO */}
-              <img
-                src={logo}
-                alt="CreditBuddy"
-                className="h-8 w-auto object-contain"
-              />
-            </motion.div>
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              src={logo}
+              alt="CreditBuddy"
+              className="h-10 w-auto drop-shadow-sm transition-shadow duration-300 group-hover:drop-shadow-md"
+            />
           </Link>
-          {/* DESKTOP MENU */}
-          <nav className="hidden lg:flex items-center gap-8 text-md font-medium">
-            {[
-              { name: "Home", path: "/" },
-              { name: "How It Works", path: "/how-it-works" },
-              { name: "For Students", path: "/students" },
-              { name: "Ambassadors", path: "/ambassadors" },
-              { name: "Blog", path: "/blog" },
-              { name: "About", path: "/about" },
-              { name: "Contact", path: "/contact" },
-            ].map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`${isActive(item.path)} transition`}
-              >
-                {item.name}
-              </Link>
-            ))}
+
+          {/* DESKTOP NAV */}
+          <nav className="hidden lg:flex items-center gap-8 text-[15px] font-medium">
+            {navItems.map((item) => {
+              const active = location.pathname === item.path;
+
+              return (
+                <Link key={item.path} to={item.path} className="relative group">
+                  <span
+                    className={`transition duration-200 ${
+                      active
+                        ? "text-gray-900 font-semibold"
+                        : "text-gray-500 group-hover:text-gray-900"
+                    }`}
+                  >
+                    {item.name}
+                  </span>
+
+                  {/* Animated underline with premium gradient */}
+                  <span
+                    className={`absolute left-0 -bottom-1.5 h-0.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 transition-all duration-300 ease-out ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* CTA */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-4">
             <Link to="/contact">
               <motion.button
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.96 }}
-                className="px-5 py-2 rounded-full text-sm font-medium text-white 
-                bg-gradient-to-r from-blue-600 to-purple-700 
-                hover:from-blue-500 hover:to-purple-600 transition shadow-sm"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="px-5 py-2.5 rounded-full text-sm font-semibold text-white shadow-md hover:shadow-lg transition-shadow duration-300 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 hover:from-blue-500 hover:via-indigo-500 hover:to-purple-600"
               >
-                Get Early Access →
+                Get Early Access
               </motion.button>
             </Link>
           </div>
 
           {/* MOBILE BUTTON */}
           <button
-            className="lg:hidden text-xl text-black"
+            className="lg:hidden text-3xl font-light text-gray-700 hover:text-gray-900 focus:outline-none transition-colors duration-200 w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100/50 active:bg-gray-200/50"
             onClick={() => setOpen(!open)}
+            aria-label="Menu"
           >
             ☰
           </button>
@@ -94,34 +103,27 @@ export default function Navbar() {
         <AnimatePresence>
           {open && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden overflow-hidden"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100/50 shadow-xl"
             >
-              <div className="px-6 py-4 space-y-4 bg-white text-gray-700">
-                {[
-                  { name: "Home", path: "/" },
-                  { name: "How It Works", path: "/how-it-works" },
-                  { name: "For Students", path: "/students" },
-                  { name: "Ambassadors", path: "/ambassadors" },
-                  { name: "Blog", path: "/blog" },
-                  { name: "About", path: "/about" },
-                  { name: "Contact", path: "/contact" },
-                ].map((item, i) => (
+              <div className="px-6 py-6 space-y-5">
+                {navItems.map((item, i) => (
                   <motion.div
                     key={item.path}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.05 }}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05, duration: 0.2 }}
                   >
                     <Link
                       to={item.path}
                       onClick={() => setOpen(false)}
-                      className={`block ${
+                      className={`block text-lg font-medium py-2 transition-colors duration-200 ${
                         location.pathname === item.path
-                          ? "text-blue-600 font-semibold"
-                          : ""
+                          ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-semibold"
+                          : "text-gray-700 hover:text-gray-900"
                       }`}
                     >
                       {item.name}
@@ -129,22 +131,22 @@ export default function Navbar() {
                   </motion.div>
                 ))}
 
-                <Link to="/contact">
-                  <button
-                    className="w-full py-2 rounded-full text-white 
-                  bg-gradient-to-r from-blue-600 to-purple-700"
-                  >
-                    Get Early Access →
-                  </button>
-                </Link>
+                {/* CTA in mobile */}
+                <div className="pt-4">
+                  <Link to="/contact" onClick={() => setOpen(false)}>
+                    <button className="w-full py-3 rounded-full text-white font-semibold text-base shadow-md hover:shadow-lg transition-all duration-200 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 hover:from-blue-500 hover:via-indigo-500 hover:to-purple-600">
+                      Get Early Access
+                    </button>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </header>
 
-      {/* 👇 IMPORTANT SPACER */}
-      <div className="h-[72px]" />
+      {/* SPACER */}
+      <div className="h-[80px]" />
     </>
   );
 }

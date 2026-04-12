@@ -1,13 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function WhyCTA() {
+  const navigate = useNavigate();
+
   return (
     <>
       {/* WHY SECTION */}
       <section className="bg-gray-50 py-20 md:py-24">
         <div className="max-w-5xl mx-auto px-6">
-          {/* HEADING */}
           <motion.h2
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +19,6 @@ export default function WhyCTA() {
             Why this isn’t just another app.
           </motion.h2>
 
-          {/* POINTS */}
           <div className="space-y-6">
             {[
               {
@@ -58,7 +59,6 @@ export default function WhyCTA() {
       {/* CTA SECTION */}
       <section className="bg-gray-50 pb-24">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          {/* HEADING */}
           <motion.h2
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +68,6 @@ export default function WhyCTA() {
             There’s a place for everyone here.
           </motion.h2>
 
-          {/* CARDS */}
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
@@ -76,18 +75,21 @@ export default function WhyCTA() {
                 desc: "Join the waitlist and get early access.",
                 color: "bg-blue-50",
                 btn: "Join Waitlist",
+                link: "/",
               },
               {
                 title: "I want to lead",
                 desc: "Become a campus ambassador and grow with us.",
                 color: "bg-green-50",
                 btn: "Apply Now",
+                link: "/contact",
               },
               {
                 title: "I want to partner",
                 desc: "Colleges, NBFCs, brands — let’s build together.",
                 color: "bg-yellow-50",
                 btn: "Contact Us",
+                link: "/contact",
               },
             ].map((item, i) => (
               <motion.div
@@ -95,8 +97,7 @@ export default function WhyCTA() {
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className={`${item.color} rounded-2xl p-6 text-left 
-                hover:-translate-y-[4px] hover:shadow-lg transition-all duration-300`}
+                className={`${item.color} rounded-2xl p-6 text-left hover:-translate-y-[4px] hover:shadow-lg transition-all duration-300`}
               >
                 <h3 className="font-semibold mb-2 text-gray-900">
                   {item.title}
@@ -104,33 +105,23 @@ export default function WhyCTA() {
 
                 <p className="text-sm text-gray-600 mb-5">{item.desc}</p>
 
-                {/* BUTTON */}
-                <button className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:opacity-90">
+                <button
+                  onClick={() => navigate(item.link)}
+                  className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:opacity-90"
+                >
                   {item.btn} →
                 </button>
               </motion.div>
             ))}
           </div>
 
-          {/* TRUST LINE */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="mt-6 text-xs text-gray-500"
-          >
+          <p className="mt-6 text-xs text-gray-500">
             No spam. No hidden charges. Just a better financial system.
-          </motion.p>
+          </p>
 
-          {/* INVESTOR LINK */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mt-3 text-xs text-gray-400"
-          >
-            For investor enquiries: hello@creditbuddy.in
-          </motion.div>
+          <div className="mt-3 text-xs text-gray-400">
+            For investor enquiries: info@creditbuddy.org.in
+          </div>
         </div>
       </section>
     </>

@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "₹150 flat fee. No interest. No hidden charges. Ever.",
+    a: "Min flat fee. No interest. No hidden charges. Ever.",
   },
   {
     q: "How fast is disbursal?",

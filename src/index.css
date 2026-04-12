@@ -25,3 +25,30 @@ body {
   @apply border border-gray-200 rounded-lg px-4 py-2 outline-none 
   focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition;
 }
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Auto scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 25s linear infinite;
+}
+
+/* Snap behavior */
+.snap-center {
+  scroll-snap-align: center;
+}

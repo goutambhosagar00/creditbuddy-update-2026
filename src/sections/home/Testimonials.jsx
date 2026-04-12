@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-
+import "../../index.css";
 const testimonials = [
   {
     name: "Rahul M.",
@@ -25,52 +25,72 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollRef = useRef(null);
+
   return (
-    <section className="bg-gray-50 py-16 sm:py-24 overflow-hidden">
+    <section className="bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24 overflow-hidden">
       {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7 }}
-        className="max-w-6xl mx-auto px-4 sm:px-6 text-center mb-10 sm:mb-14"
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12"
       >
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-gray-900">
           Trusted by students across campuses.
         </h2>
+        <p className="text-gray-500 mt-3 text-sm sm:text-base">
+          Real stories from real students using CreditBuddy
+        </p>
       </motion.div>
 
-      {/* SCROLL */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative"
+      {/* SCROLL AREA */}
+      <div
+        ref={scrollRef}
+        className="overflow-x-auto no-scrollbar scroll-smooth px-4 sm:px-6 cursor-grab active:cursor-grabbing"
       >
-        <div className="flex gap-4 sm:gap-6 animate-scroll w-max px-4 sm:px-6">
+        <div
+          className={`flex gap-4 sm:gap-6 w-max ${
+            isPaused ? "" : "animate-scroll"
+          }`}
+        >
           {[...testimonials, ...testimonials].map((item, i) => (
             <div
               key={i}
-              className="min-w-[240px] sm:min-w-[260px] md:min-w-[320px] 
-              bg-white p-5 sm:p-6 rounded-2xl 
-              shadow-sm border border-gray-100 
-              transition-all duration-300 hover:shadow-md hover:-translate-y-[4px]"
+              onClick={() => {
+                setActiveIndex(i);
+                setIsPaused(true);
+              }}
+              onTouchStart={() => {
+                setActiveIndex(i);
+                setIsPaused(true);
+              }}
+              className={`snap-center min-w-[260px] sm:min-w-[300px] md:min-w-[340px] 
+              
+              backdrop-blur-xl bg-white/80
+              border rounded-2xl p-5 sm:p-6
+              transition-all duration-300 cursor-pointer
+              
+              ${
+                activeIndex === i
+                  ? "border-black shadow-lg scale-[1.03]"
+                  : "border-gray-200 hover:shadow-md hover:scale-[1.02]"
+              }`}
             >
               {/* STARS */}
-              <div className="text-yellow-400 mb-3 text-sm tracking-wide">
-                ★★★★★
-              </div>
+              <div className="text-yellow-400 text-sm mb-3">★★★★★</div>
 
               {/* TEXT */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-5">
+              <p className="text-gray-600 text-sm leading-relaxed mb-6">
                 "{item.text}"
               </p>
 
               {/* USER */}
               <div className="flex items-center gap-3">
-                {/* AVATAR */}
-                <div className="w-9 h-9 bg-gray-900 text-white flex items-center justify-center rounded-full text-xs font-medium">
+                <div className="w-10 h-10 bg-black text-white flex items-center justify-center rounded-full text-sm font-medium">
                   {item.name[0]}
                 </div>
 
@@ -84,7 +104,7 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

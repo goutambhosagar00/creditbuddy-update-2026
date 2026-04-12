@@ -83,7 +83,7 @@ export default function ContactForm() {
             <input name="phone" placeholder="Mobile Number" className="input" />
 
             <select name="type" className="input">
-              <option>Select</option>
+              <option>Select Role</option>
               <option>Student</option>
               <option>Partner</option>
               <option>Investor</option>
@@ -117,7 +117,9 @@ export default function ContactForm() {
         <div className="space-y-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-6">
             <h3 className="font-semibold mb-4">Find us directly.</h3>
-            <p className="text-sm text-gray-600">📧 hello@creditbuddy.in</p>
+            <p className="text-sm text-gray-600">
+              📧 creditbuddyofficial@gmail.com
+            </p>
             <p className="text-sm text-gray-600">📍 Sambalpur, Odisha, India</p>
           </div>
         </div>

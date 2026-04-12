@@ -18,13 +18,13 @@ const advisors = [
     desc: "Drives NBFC partnerships, lending structure, and capital strategy.",
   },
   {
-    name: "Shekhar Kumar Purohit",
-    role: "Growth",
-    desc: "",
+    name: "Shekhar Kumar Padhy",
+    role: "GTM & Revenue Advisor",
+    desc: "Go-to-market strategy, monetisation, and revenue scaling",
   },
   {
-    name: "Ayush Nanda - Busineess Advisor  ",
-    role: "Marketing & Growth",
+    name: "Ayush Nanda ",
+    role: "Business Advisor",
     desc: "Fundraising guidance and national expansion strategy.",
   },
 ];
